@@ -1,0 +1,98 @@
+.home-container{
+    background-color: #F0FFF0;
+
+    margin: 0px;
+    flex-grow: 1;
+}
+
+.home-container-initial{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.home-container-main-head-cont{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 40px;
+
+}
+
+.home-initial-heads{
+    color: #4CAF50;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 5px;
+    font-family: cursive;
+}
+.frutis-image{
+    height: 100px;
+    background-image: transparent;
+    color: transparent;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.home-inittial-head-conts{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home-sub-category-list{
+    list-style-type: none;
+    width: 30%;
+    margin: 14px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.home-sub-category-cont-left{
+    width: 45%;
+    display: flex;
+    margin: 0px 20px;
+
+}
+
+.list-of-items-home-fruits{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.home-sub-category-name{
+    font-size: 12px;
+}
+
+.frutis-image-mini{
+    height: 60px;
+    cursor: pointer;
+    width: 70%;
+    border-radius: 5px;
+    background-size: cover;
+}
+
+.home-container-sub-category-cont{
+    display: flex;
+    justify-content: center;
+}
+
+.home-sub-category-cont-middle{
+    display: flex;
+    flex-direction: column;
+padding: 20px 0px;
+}
+
+.divide-line{
+    flex-grow: 1;
+    border: 1.5px solid #4CAF50 ;
+
+}
+
+.home-sub-category-cont-right{
+    width: 45%; 
+    display: flex;
+    margin: 0px 20px; 
+    justify-content: right;
+}
