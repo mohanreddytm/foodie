@@ -55,6 +55,11 @@
 
 }
 
+.header-heading{
+    outline: none;
+    cursor: pointer;
+}
+
 .list-of-items-home-fruits{
     display: flex;
     flex-wrap: wrap;

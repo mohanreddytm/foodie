@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import React from 'react';
 import Header from '../Header';
-
+import { useNavigate } from 'react-router-dom';
 import './index.css';
 
 const Home = () => {
+
+  const navigate = useNavigate();
   // const fruitName = "Fruits and Vegetables";
   // const [imageUrl, setImageUrl] = useState('');
   // const [error, setError] = useState(false);
@@ -31,6 +33,11 @@ const Home = () => {
   const VegetablesUrl = "https://img.freepik.com/free-photo/healthy-vegetables-wooden-table_1150-38014.jpg?t=st=1744972905~exp=1744976505~hmac=2eb29e971a7f75e006e691345f75b6f83da52249de55f8d6c0b387aee40b67e6&w=1480"
   const citrusUrl = "https://img.freepik.com/free-vector/fresh-citrus-fruit-collection-white_1284-33360.jpg?t=st=1744969150~exp=1744972750~hmac=fdf475c95c30d2cdf38573ac3e2702af775e5d63b7ac6483444181fda7c00f5f&w=1380"
 
+
+
+  const onClickFruitsOne = () => {
+    navigate('/items/fruits');
+  }
 
   const fruitsSubCategory = [
     {img:citrusUrl, name:"Citrus"},
@@ -61,7 +68,7 @@ const Home = () => {
       <Header />
       <div className='home-container'>
         <div className='home-container-main-head-cont'>
-            <div className='home-inittial-head-conts'> 
+            <div className='home-inittial-head-conts' onClick={onClickFruitsOne}> 
               <img src={fruitsUrl} alt='fruits' className='frutis-image' />
               <h1 className='home-initial-heads'>Fruits</h1>
             </div>
