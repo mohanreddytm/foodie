@@ -1,5 +1,5 @@
 .main-items-cont{
-    height: 100vh;
+
     display: flex;
     flex-direction: column;    background-color: #F0FFF0;
 }
@@ -153,5 +153,23 @@
 
 .selected-item-style{
     background-color: #7eff83;
-    border-radius: 10px;
+    border-radius: 20px;
+
+}
+
+.selected-item-style h1{
+    color: white !important;
+} 
+
+.main-items-bottom-right-cont{
+    display: flex;
+    flex-direction: column;
+}
+
+.loading-main-cont{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
 }
