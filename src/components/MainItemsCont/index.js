@@ -1,16 +1,44 @@
-import React from 'react'
+import React, {useState, useEffect } from 'react'
 import Header from '../Header'
-
 import { IoLibraryOutline, IoSearchSharp } from "react-icons/io5";
 
 import {useParams} from 'react-router-dom'
 
+import EveryItem from '../EveryItem';
+
 import './index.css'
 
-const MainItemsCont = () => {
-    const {category} = useParams()
-    console.log(category)
+const statusOne = {
+    LOADING: "loading",
+    SUCCESS: "success",
+    FAILURE: "failure",
+}
 
+const MainItemsCont = () => {
+    const [items, setItems] = useState([])
+    const [selectedItem, setSelectedItem] = useState();
+    const [status, setStatus] = useState(statusOne.LOADING);
+    const {category,subCategory} = useParams()
+    console.log(category,subCategory)
+
+    useEffect(() => {
+        const getItemsAll = async () => {
+            setStatus(statusOne.LOADING)
+            const response = await fetch("https://forfoodie.onrender.com/products/")
+
+            const data = await response.json()
+            
+            if(response.ok) {
+                setItems(data)
+                setStatus(statusOne.SUCCESS)
+            }
+            else {
+                setStatus(statusOne.FAILURE)
+            }
+        }
+
+        getItemsAll()
+    }, [])
 
     const fruitsOne = () => {
         const citrusUrl = "https://img.freepik.com/free-vector/fresh-citrus-fruit-collection-white_1284-33360.jpg?t=st=1744969150~exp=1744972750~hmac=fdf475c95c30d2cdf38573ac3e2702af775e5d63b7ac6483444181fda7c00f5f&w=1380"
@@ -28,13 +56,13 @@ const MainItemsCont = () => {
           ]
         return (
             <div className='main-items-bottom-left-cont'>
-                <div className='main-items-left-cont-item main-items-left-cont-item-main'>
+                <div className={`main-items-left-cont-item main-items-left-cont-item-main ${subCategory === 'fruits' && "selected-item-style"}`}>
                     <img src={fruitsUrl} alt="Fruits" className='main-items-left-cont-item-img' />
                     <h1 className='main-items-left-cont-item-name'>Fruits</h1>
                 </div>
                 <ul className='main-items-left-cont'>
                     {fruitsSubCategory.map((item) => (
-                        <li key={item.name} className='main-items-left-cont-item'>
+                        <li key={item.name} className={`main-items-left-cont-item ${subCategory === item.name && "selected-item-style"}`} onClick={() => setSelectedItem(item.name)}>
                             <img src={item.img} alt={item.name} className='main-items-left-cont-item-img' />
                             <span className='main-items-left-cont-item-name'>{item.name}</span>
                         </li>
@@ -61,6 +89,11 @@ const MainItemsCont = () => {
                             </label>
                         </div>
                     </div>
+                    <ul className='main-items-bottom-right-cont-list'>
+                        {items.slice(0, 30).map((item) => (
+                            <EveryItem key={item.id} name={item.name} price={item.price}/>
+                        ))}    
+                    </ul>
                 </div>
 
                 <div></div>

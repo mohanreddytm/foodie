@@ -1,0 +1,45 @@
+.every-item-name{
+    font-size: 20px;
+    font-weight: 600;
+    color: #ffaa00;
+    margin: 0px 0px 10px 0px;
+}
+
+.every-item-cont{
+    background-color: white;
+    border-radius: 10px;
+}
+
+.every-item-name-cont{
+    padding: 10px 20px;
+}
+
+.every-item-price-cont{
+align-items: center;
+
+}
+
+.every-item-price{
+    margin-bottom: 0px !important;padding: 0px;
+}
+
+.every-item-quantity{
+    padding: 4px 8px;
+    border-radius: 5px;
+    border: 1px solid #4CAF50;
+    outline: none;
+}
+
+.every-item-btn{
+    background-color: #ff842c;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 16px 0px 8px 0px;
+    cursor: pointer;
+    border-radius: 5px;
+}

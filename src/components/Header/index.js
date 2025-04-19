@@ -14,7 +14,7 @@ const Header = (props) => {
   
   
     useEffect(() => {
-      Cookies.get('jwt_token') === undefined ? navigate('/login') : setIsLoggedIn(true)
+      Cookies.get('jwt_token') === undefined ? setIsLoggedIn(false) : setIsLoggedIn(true)
     }, [])
     
 

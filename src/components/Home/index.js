@@ -7,26 +7,26 @@ import './index.css';
 const Home = () => {
 
   const navigate = useNavigate();
-  // const fruitName = "Fruits and Vegetables";
-  // const [imageUrl, setImageUrl] = useState('');
-  // const [error, setError] = useState(false);
+    const fruitName = "apple";
+    const [imageUrl, setImageUrl] = useState('');
+    const [error, setError] = useState(false);
 
-  // useEffect(() => {
-  //   const fetchImage = async () => {
-  //     try {
-  //       const response = await fetch(
-  //         `https://api.unsplash.com/photos/random?query=${fruitName}&client_id=SaZe4-HmbQKO6LGApxlgC6yMyUqcGKva31oAX8it-7Y`
-  //       );
-  //       const data = await response.json();
-  //       setImageUrl(data.urls?.regular || '');
-  //     } catch (error) {
-  //       setError(true);
-  //       console.error('Failed to fetch image:', error);
-  //     }
-  //   };
+    useEffect(() => {
+      const fetchImage = async () => {
+        try {
+          const response = await fetch(
+            `https://api.unsplash.com/photos/random?query=${fruitName}&client_id=SaZe4-HmbQKO6LGApxlgC6yMyUqcGKva31oAX8it-7Y`
+          );
+          const data = await response.json();
+          setImageUrl(data.urls?.regular || '');
+        } catch (error) {
+          setError(true);
+          console.error('Failed to fetch image:', error);
+        }
+      };
 
-  //   fetchImage();
-  // }, [fruitName]);
+      fetchImage();
+    }, [fruitName]);
 
   const fruitsUrl = "https://img.freepik.com/free-photo/colorful-fruits-tasty-fresh-ripe-juicy-white-desk_179666-169.jpg?t=st=1744968297~exp=1744971897~hmac=8225435c8aaa93dce6d9d9299f7b1d0afa26c2964936b60c61a551d3b4a82440&w=1480"
 
@@ -36,7 +36,11 @@ const Home = () => {
 
 
   const onClickFruitsOne = () => {
-    navigate('/items/fruits');
+    navigate('/items/fruits/fruits');
+  }
+
+  const onClickEachFruitStage = (one) => {
+    navigate(`/items/fruits/${one}`);
   }
 
   const fruitsSubCategory = [
@@ -81,7 +85,7 @@ const Home = () => {
           <div className='home-sub-category-cont-left'>
               <ul className='list-of-items-home-fruits'>
                 {fruitsSubCategory.map((each) => (
-                  <li key={each.name} className='home-sub-category-list'>
+                  <li key={each.name} onClick={() => onClickEachFruitStage(each.name)} className='home-sub-category-list'>
                     <img src={each.img} alt={each.name} className='frutis-image-mini' />
                     <h1 className='home-sub-category-name'>{each.name}</h1>
                   </li>
@@ -100,6 +104,7 @@ const Home = () => {
                   </li>
                 ))}
               </ul>
+
           </div>
         </div>
       </div>
