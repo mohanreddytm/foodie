@@ -5,6 +5,10 @@ import LoginAndRegister from './components/LoginAndRegister'
 import Cart from './components/Cart'
 import MainItemsCont from './components/MainItemsCont'
 
+import AdminLogin from './components/AdminLogin'
+
+import Orders from './components/Orders'
+
 
 import './App.css'
 
@@ -15,8 +19,9 @@ const App = () => {
       <Route path='/login' exact Component={LoginAndRegister} />
       <Route path='/cart' exact Component={Cart} />
       <Route path='/items/:category/:subCategory' Component={MainItemsCont} />
-
-    </Routes>
+      <Route path='/orders' exact Component={Orders} />
+      <Route path='/adminlogin' exact Component={AdminLogin} />
+     </Routes>
   )
 }
 

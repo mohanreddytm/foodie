@@ -74,3 +74,21 @@
     outline: none;
     cursor: pointer;
 }
+
+
+@media screen and (max-width : 767px) {
+    .header-right-items{
+        display: none;
+    }
+    .main-header{
+        margin: 0px;
+        width: 95%;
+    }
+    .header{
+        padding: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+}

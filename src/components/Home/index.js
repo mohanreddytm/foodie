@@ -7,26 +7,6 @@ import './index.css';
 const Home = () => {
 
   const navigate = useNavigate();
-    const fruitName = "apple";
-    const [imageUrl, setImageUrl] = useState('');
-    const [error, setError] = useState(false);
-
-    useEffect(() => {
-      const fetchImage = async () => {
-        try {
-          const response = await fetch(
-            `https://api.unsplash.com/photos/random?query=${fruitName}&client_id=SaZe4-HmbQKO6LGApxlgC6yMyUqcGKva31oAX8it-7Y`
-          );
-          const data = await response.json();
-          setImageUrl(data.urls?.regular || '');
-        } catch (error) {
-          setError(true);
-          console.error('Failed to fetch image:', error);
-        }
-      };
-
-      fetchImage();
-    }, [fruitName]);
 
   const fruitsUrl = "https://img.freepik.com/free-photo/colorful-fruits-tasty-fresh-ripe-juicy-white-desk_179666-169.jpg?t=st=1744968297~exp=1744971897~hmac=8225435c8aaa93dce6d9d9299f7b1d0afa26c2964936b60c61a551d3b4a82440&w=1480"
 
@@ -36,11 +16,19 @@ const Home = () => {
 
 
   const onClickFruitsOne = () => {
-    navigate('/items/fruits/fruits');
+    navigate('/items/Fruits/fruits');
+  }
+
+  const onClickVegetablesOne = () => {
+    navigate('/items/Vegetables/vegetables')
   }
 
   const onClickEachFruitStage = (one) => {
-    navigate(`/items/fruits/${one}`);
+    navigate(`/items/Fruits/${one}`);
+  }
+
+  const onClickEachVegetableStage = (one) => {
+    navigate(`/items/Vegetables/${one}`);
   }
 
   const fruitsSubCategory = [
@@ -58,11 +46,11 @@ const Home = () => {
   const vegetablesSubCategory = [
     {img : "http://img.freepik.com/free-photo/front-view-fresh-vegetables-cabbage-parsley-bell-peppers-lettuce-dill-cauliflower-dark-surface_140725-62446.jpg?t=st=1744972100~exp=1744975700~hmac=ec1413b242aa2bca3953db12daad9ef93e12c20c58450d96371166d858352f10&w=1480",name: "Cruciferous"},
     {img : "https://img.freepik.com/free-photo/front-view-colorful-pumpkins-different-sizes_23-2148263090.jpg?t=st=1744972268~exp=1744975868~hmac=a11431a13442f6f0b9ca5b8f7a5d2bcbdaacf8fe286e89992820aa84a705e0b5&w=1480" ,name: "Squash"},
-    {img : "https://img.freepik.com/free-photo/broccoli-coriander-leaves-lettuce-stone-surface-high-quality-photo_114579-27253.jpg?t=st=1744972340~exp=1744975940~hmac=e1a47b871958a77edfbe73963a3539955d808b7921e320907a8cd2f63c48e207&w=1480", name: "Leafy Greens"},
+    {img : "https://img.freepik.com/free-photo/broccoli-coriander-leaves-lettuce-stone-surface-high-quality-photo_114579-27253.jpg?t=st=1744972340~exp=1744975940~hmac=e1a47b871958a77edfbe73963a3539955d808b7921e320907a8cd2f63c48e207&w=1480", name: "Leafy Green"},
     {img : "https://img.freepik.com/free-photo/carrots-different-colors-with-roots_181624-3898.jpg?t=st=1744972409~exp=1744976009~hmac=51a9392f06824644bb6c41f31a573173739537ee61b172ede25d2cb6964785ea&w=996", name:"Stem"},
-    {img : "https://img.freepik.com/free-photo/superfoods-seeds-grains-vegan-vegetarian-eating-clean-eating_114579-3939.jpg?t=st=1744972457~exp=1744976057~hmac=fee18dab67478876d6d8e11168201b0a2bf5daab2d968b875f1fec7a00d97faa&w=1480", name:"Grains"},
+    {img : "https://img.freepik.com/free-photo/superfoods-seeds-grains-vegan-vegetarian-eating-clean-eating_114579-3939.jpg?t=st=1744972457~exp=1744976057~hmac=fee18dab67478876d6d8e11168201b0a2bf5daab2d968b875f1fec7a00d97faa&w=1480", name:"Grain"},
     {img : "https://img.freepik.com/free-photo/set-knife-other-zucchinis-bowl-around-sliced-zucchinis-dark-wooden-table-flat-lay_176474-1561.jpg?t=st=1744972557~exp=1744976157~hmac=c68d18f81754eab11dd957281c962fe25fb8292fac098c363eb952530959897d&w=1480",name:"Summer Squash"},
-    {img : "https://img.freepik.com/free-photo/food-vegetable-colorful-background-tasty-fresh-vegetables-wooden-box-wooden-table-kitchen-background-copy-space-toning_1220-1219.jpg?t=st=1744972627~exp=1744976227~hmac=74ec3a15c769c0e7eb77d1491d448b88abed676cb74898d7034ac8a3841c8908&w=1800" ,name:"flowering"},
+    {img : "https://img.freepik.com/free-photo/food-vegetable-colorful-background-tasty-fresh-vegetables-wooden-box-wooden-table-kitchen-background-copy-space-toning_1220-1219.jpg?t=st=1744972627~exp=1744976227~hmac=74ec3a15c769c0e7eb77d1491d448b88abed676cb74898d7034ac8a3841c8908&w=1800" ,name:"Flowering"},
     {img : "https://img.freepik.com/free-photo/mushrooms-carrots-with-soil_23-2147681754.jpg?t=st=1744972681~exp=1744976281~hmac=94261cc5428c6743471b6e5af896cebc2115b92836188656a5eaee98d3bfbd6c&w=1480", name:"Fungus"},
     {img : "https://img.freepik.com/free-photo/front-view-fresh-vegetables-with-seasonings-peppers-grey-table_140725-133814.jpg?t=st=1744972729~exp=1744976329~hmac=f2dcaa636e5b8f858adf923520d723921471cd6ac1302d1df839a34dc97081f0&w=1480", name:"Spicy"}
   ]
@@ -76,7 +64,7 @@ const Home = () => {
               <img src={fruitsUrl} alt='fruits' className='frutis-image' />
               <h1 className='home-initial-heads'>Fruits</h1>
             </div>
-            <div className='home-inittial-head-conts'>
+            <div className='home-inittial-head-conts' onClick={onClickVegetablesOne}>
               <img src={VegetablesUrl} alt='fruits' className='frutis-image' />
               <h1 className='home-initial-heads'>Vegetables</h1>
             </div>
@@ -98,7 +86,7 @@ const Home = () => {
           <div className='home-sub-category-cont-right'>
           <ul className='list-of-items-home-fruits'>
                 {vegetablesSubCategory.map((each) => (
-                  <li key={each.name} className='home-sub-category-list'>
+                  <li key={each.name} onClick={() => onClickEachVegetableStage(each.name)}  className='home-sub-category-list'>
                     <img src={each.img} alt={each.name} className='frutis-image-mini' />
                     <h1 className='home-sub-category-name'>{each.name}</h1>
                   </li>

@@ -1,70 +1,129 @@
-# Getting Started with Create React App
+# 🥗 Foodie App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Foodie is a full-stack web application where users can explore and order items like fruits and vegetables. It supports user and admin roles, with features like cart management, orders tracking, and category-based filtering.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 📂 Source Code
 
-### `npm start`
+The project is organized into two main directories:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Frontend:** Built with React
+- **Backend:** Node.js, Express.js
+- **Database:** Neon 
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🛠️ Tech Stack
 
-### `npm run build`
+- **Frontend:** React, React Router, CSS
+- **Backend:** Node.js, Express.js
+- **Database:** PostgreSQL (via Neon)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Authentication:** JSON Web Tokens (JWT)
+- **Deployment:** Render (or mention where you hosted it)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## ✨ Features
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- User Registration & Login
+- Admin Login
+- Role-based UI and permissions
+- Category & Subcategory filtering
+- Add/Remove items from cart
+- Place and manage orders
+- Admin can update order status
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🧭 Navigation Overview
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 🏠 Home Page
+- Header contains logo on the left, and on the right:
+  - `Cart`, `Home`, `Login/Register` if not logged in
+  - `Profile` dropdown (with `Orders`, `Logout`) if logged in
+- Below header:
+  - Left: Fruits and subcategories
+  - Right: Vegetables and subcategories
+- Clicking a category or subcategory navigates to:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+### 🛍️ Items Page – `/items/:category/:subcategory`
+- Header at top
+- Left: Modifiable list of subcategories
+- Right: 
+- Search bar
+- Item list with:
+  - Image
+  - Quantity
+  - Button:
+    - `Add to Cart` (for users)
+    - `Remove Item` (for admin — deletes from backend)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 🛒 Cart Page
+- Header
+- Left: List of items added to the cart
+- Right: Place Order section
+- Users can:
+- Delete items from cart
+- Place an order
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 📦 Orders Page
+- Header
+- **User View:**
+    - See personal orders
+    - Delete orders
+- **Admin View:**
+    - See all orders in a table
+    - Delete any order
+    - Change order status (e.g., pending, delivered)
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+## 🔐 Authentication & Authorization
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+The app supports **role-based login** for both users and admin:
 
-### Advanced Configuration
+- **User**
+  - Can **Register** and **Login**
+  - After login, sees `Profile` in the header with options: `Orders` and `Logout`
+  - Can **add to cart**, **place orders**, and **view/delete own orders**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- **Admin**
+  - Has a separate **Login** (no registration)
+  - After login, sees `Profile` with access to:
+    - **View all orders**
+    - **Delete orders**
+    - **Change order status**
+    - **Remove products**
 
-### Deployment
+Authentication state is managed in the frontend to conditionally render options in the header and control access to protected routes.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 🔐 Admin Credentials
 
-### `npm run build` fails to minify
+Admin account is pre-configured and cannot be registered through the app.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+To access the admin dashboard, use the following credentials:
+
+Email: adminloginone@gmail.com
+Password: admin
+
+
+> ⚠️ These credentials are hardcoded or stored in the database during setup. You can change them manually in the backend seed file or directly in the database.
+
+Ensure this information is kept secure and changed before deploying to production.
+
+
+## 🔐 Authentication
+- Role-based access (User/Admin)
+- Logged-in users see profile options
+- Admins get additional management features
+
+---
+

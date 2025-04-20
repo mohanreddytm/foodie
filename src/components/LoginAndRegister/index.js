@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom";
-
+import { Hourglass } from 'react-loader-spinner'
 import Cookies from 'js-cookie'
 import { useState, useEffect } from 'react'
 
@@ -23,7 +23,7 @@ useEffect(() => {
 
   const [isLogin, setIsLogin] = useState(true);
 const [isError, setIsError] = useState(false);
-
+const [loginErrormag, setLoginErrorMsg] = useState("Please fill all the Feilds")
 const [firstName, setFirstName] = useState("");
 const [lastName, setLastName] = useState("");
 const [errormsg, setErrorMsg] = useState("");
@@ -47,6 +47,8 @@ const [loginPassword, setLoginPassword] = useState("");
     setIsLogin(true); 
   }
 
+  const [isloginingin, setlisloginingin] = useState(false)
+
 
 
   const login = () => {
@@ -68,11 +70,23 @@ const [loginPassword, setLoginPassword] = useState("");
             <div className='login-button-container'>
               <button type='submit' className='login-button' onClick={onclickLoginButtonone}>Login</button>
             </div>
-            {isErrorLogin && <p className='error-register'>* Please fill all the Required Feilds *</p>}
+            {isErrorLogin && <p className='error-register'>* {loginErrormag} *</p>}
 
             <p className='login-para'>Don't have an account? <span className='login-span'  onClick={onClickRegisterOne}>Register</span></p>
           </form>
           </div>
+          {isloginingin && 
+          <div className='loading-login-cont-main'>
+                      <Hourglass
+                      visible={true}
+                      height="40"
+                      width="40"
+                      ariaLabel="hourglass-loading"
+                      wrapperStyle={{}}
+                      wrapperClass=""
+                      colors={['#306cce', '#72a1ed']}
+                      />
+                  </div>}
         </div>
     )
   }
@@ -112,6 +126,7 @@ const [loginPassword, setLoginPassword] = useState("");
       }
       
       else {
+        setlisloginingin(true)
         console.log("All fields are valid")
         setIsError(false);
         const url = "https://forfoodie.onrender.com/users/";
@@ -150,11 +165,15 @@ const [loginPassword, setLoginPassword] = useState("");
   }
 
   const onclickLoginButtonone = (event) => {
+
+
     event.preventDefault();
 
     if (loginEmail === "" || loginPassword === "") {
       setIsErrorLogin(true);  
+      setlisloginingin(false);
     } else {
+      setlisloginingin(true);
       setIsErrorLogin(false);
       const url = "https://forfoodie.onrender.com/login/";
       const options = {
@@ -171,16 +190,17 @@ const [loginPassword, setLoginPassword] = useState("");
       const fetchData = async () => {
         console.log("Seee");
         const response = await fetch(url, options);
-        const data = await response.json();
-        console.log("noenonoasndg")
-        console.log(data)
         if (response.ok) {
+          const data = await response.json();
           Cookies.set("jwt_token", data.jwtToken, { expires: 30 });  
           navigate("/");
         } else {
-          alert("Login Failed")
+          const data = await response.text()
+          setLoginErrorMsg(data)
+          setlisloginingin(false)
+          setIsErrorLogin(true);
+
         }
-        console.log(data);
       }
 
       fetchData();
@@ -245,6 +265,18 @@ const [loginPassword, setLoginPassword] = useState("");
       <p className='login-para'>Already a User - <span className='login-span' onClick={onClickLoginOne}>Login</span></p>
     </form>
       </div>
+      {isloginingin && 
+          <div className='loading-login-cont-main'>
+                      <Hourglass
+                      visible={true}
+                      height="40"
+                      width="40"
+                      ariaLabel="hourglass-loading"
+                      wrapperStyle={{}}
+                      wrapperClass=""
+                      colors={['#306cce', '#72a1ed']}
+                      />
+                  </div>}
     </div>
       
     )

@@ -41,5 +41,26 @@ align-items: center;
     font-size: 12px;
     margin: 16px 0px 8px 0px;
     cursor: pointer;
+    outline: none;
     border-radius: 5px;
+}
+
+.need-login-message{
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.need-login-message-para{
+    color:white;
+    background-color: #ff842c;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 8px 16px;
 }
