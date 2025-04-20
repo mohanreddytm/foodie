@@ -127,3 +127,5 @@ Ensure this information is kept secure and changed before deploying to productio
 
 ---
 
+Backend Performance Note:
+Please note that the application relies on a free backend service. As a result, certain operations, such as loading data or deleting items, may experience some delays. We appreciate your patience as these processes complete.
