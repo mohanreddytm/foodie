@@ -79,6 +79,7 @@ const Home = () => {
                   </li>
                 ))}
               </ul>
+
           </div>  
           <div className='home-sub-category-cont-middle'>
             <hr className='divide-line' />
