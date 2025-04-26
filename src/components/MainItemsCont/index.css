@@ -289,5 +289,104 @@
     .lagout-admin{
         display: block;
     }
+    .main-items-cont-bottom{
+        flex-direction: column;
+
+    }
+    .main-items-bottom-left-cont{
+        display: flex;
+        border: none;
+        width: 100vw;
+        overflow-x: scroll;
+    }
+    .main-items-left-cont{
+        display: flex;
+        align-items: center;
+    }
+    .main-items-left-cont-item{
+        min-width: 30%;
+        display: flex;
+        padding-top: 0px !important;   
+        flex-direction: column;
+
+    }
+    .main-items-left-cont-item:hover{
+        background-color: initial;
+        cursor: none;
+        border-radius: none;
+    }
+    .selected-item-style{
+        padding: 0px;
+    }
+    .main-items-left-cont-item-img{
+        width: 100%;
+        height: 70px;
+        margin: 0px;
+        border-radius: 8px;
+    }
+    .main-items-left-cont-item-main{
+        border: none;
+        padding: 10px;
+        margin-top: 30px;
+        width: 50% !important;
+        border-right: 2px solid  #ffde4a;
+
+    }
+    .main-items-left-cont-item:hover .main-items-left-cont-item-name{
+        color: #4CAF50;
+    }
     
+    .selected-item-style{
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px 0px #7eff83;
+    }
+    .selected-item-style .main-items-left-cont-item-name{
+        color: rgb(255, 255, 255);
+    }
+    .main-items-left-cont-item-name{
+        font-size: 14px;
+    }
+    .main-items-bottom-right-cont{
+        width: 100%;
+        margin: 0px;        
+        background-color: rgb(255, 240, 197);
+        padding: 0px;
+    }
+    .main-items-bottom-right-cont-head-cont h1{
+        margin-top: 0px;
+        padding-top: 0px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+    }
+    .main-items-bottom-right-cont-list{
+        margin: 0px;
+        justify-content: center;
+    }
+    .main-items-bottom-right-cont{
+        flex-grow: 1 !important;
+        height: 100% !important;
+    }
+    .main-items-cont{
+        min-height: 100vh;
+    }
+
+    .main-items-cont{
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+    .miain-bottom{
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+    .main-items-cont-bottom{
+        flex-grow: 1 !important;
+        min-height: 100% !important;
+    }
+    .loading-main-cont{
+
+        margin-top: 40%;
+        align-items: flex-start;
+    }
 }

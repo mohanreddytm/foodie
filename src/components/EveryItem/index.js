@@ -101,27 +101,26 @@ const EveryItem = (props) => {
     <li className="every-item-cont">
         <FruitImage fruitName={name} />
         <div className='every-item-name-cont'>
-        <h1 className="every-item-name">{name}</h1>
-        <div className='every-item-price-cont'>
-
-            <p className="every-item-price">Price: {price}</p>
-            <select value={quantity} className="every-item-quantity" onChange={onChangeQuantity}>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-            </select>
+          <h1 className="every-item-name">{name}</h1>
+          <div className='every-item-price-cont'>
+              <p className="every-item-price">Price: {price}</p>
+              <select value={quantity} className="every-item-quantity" onChange={onChangeQuantity}>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+              </select>
+          </div>
+          {isAdmin ? <button className="every-item-btn" onClick={onClickRemoveItem}>Remove Item</button> : 
+            <button className="every-item-btn" onClick={onClickAddToCart}>Add to Cart</button>
+          }
         </div>
-        {isAdmin ? <button className="every-item-btn" onClick={onClickRemoveItem}>Remove Item</button> : 
-        <button className="every-item-btn" onClick={onClickAddToCart}>Add to Cart</button>
-}
-              </div>
       {showError && showErrorMessage()}
     </li>
   );

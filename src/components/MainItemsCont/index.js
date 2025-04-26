@@ -168,7 +168,6 @@ const MainItemsCont = () => {
             </div>
 
         )
-        
     }
 
     const emptyItemsView = () => {
@@ -187,7 +186,7 @@ const MainItemsCont = () => {
   return (
     <div className='main-items-cont'>
         <Header />
-        <div>
+        <div className='miain-bottom'>
             <div className='main-items-cont-bottom'>
                 {category === 'Fruits' ? fruitsOne() : vegetablesOne()}
                 <div className='main-items-bottom-right-cont'>

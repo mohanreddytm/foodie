@@ -64,3 +64,24 @@ align-items: center;
     font-weight: 500;
     padding: 8px 16px;
 }
+
+@media screen and (max-width: 767px) {
+    .every-item-cont{
+        width: 43% !important;
+        border-radius: 8px;
+    }
+    .fruit-image{
+        height: 120px !important;
+        border-radius: 8px 8px 0px 0px !important;
+    }
+    .every-item-name-cont{
+        padding: 10px;
+    }
+    .every-item-name{
+        color: #4CAF50;
+        padding: 0px;
+    }
+    .every-item-btn{
+        border-radius: 3px;
+    }
+}

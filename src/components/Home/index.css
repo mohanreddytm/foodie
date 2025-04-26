@@ -124,21 +124,29 @@
         height: auto !important;
     } */
     .frutis-image-mini{
-        height:50px; 
+        height:60px; 
         border-radius:8px;
-        width: 80%;
+        width: 90%;
 
     }
     .home-sub-category-name{
-        font-size: 10px;
+        font-size: 12px ;
     }
     .list-of-items-home-fruits{
 
         padding: 0px;
         margin-top: 20px;
     }
+    .home-initial-heads{
+        font-size: 16px !important;
+    }
     .home-sub-category-cont-left{
         min-width: 50% !important;
+    }
+
+    .frutis-image{
+        width: 150px;
+        height: 80px !important;
     }
 
 }   
