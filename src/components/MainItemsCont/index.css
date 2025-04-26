@@ -152,7 +152,7 @@
 }
 
 .selected-item-style{
-    background-color: #7eff83;
+    background-color: #baffbc;
     border-radius: 20px;
 
 }
@@ -338,10 +338,10 @@
     
     .selected-item-style{
         border-radius: 8px;
-        box-shadow: 0px 0px 10px 0px #7eff83;
+        box-shadow: 0px 0px 5px 0px #7eff83;
     }
     .selected-item-style .main-items-left-cont-item-name{
-        color: rgb(255, 255, 255);
+        color: rgb(75, 75, 75);
     }
     .main-items-left-cont-item-name{
         font-size: 14px;
@@ -349,7 +349,7 @@
     .main-items-bottom-right-cont{
         width: 100%;
         margin: 0px;        
-        background-color: rgb(255, 240, 197);
+        background-color: rgb(255, 244, 214);
         padding: 0px;
     }
     .main-items-bottom-right-cont-head-cont h1{
