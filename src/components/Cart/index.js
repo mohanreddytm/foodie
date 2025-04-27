@@ -56,14 +56,14 @@ const Cart = () => {
 
     const [status, setStatus] = useState(statusOne.SUCCESS);
 
-    let notloggedIn = false;
+    const [notloggedIn, setNotloggedin] = useState(false);
 
 
     useEffect(() => {
         if(Cookies.get("jwt_token") == undefined){
-            notloggedIn = true;
+            setNotloggedin(true);
         }else{
-            notloggedIn = false;
+            setNotloggedin(false);
             setStatus(statusOne.LOADING)
         
             const token = Cookies.get("jwt_token")
@@ -196,15 +196,53 @@ const Cart = () => {
                     {cartItems.map(each => 
                     <li className='cart-item-fetch-everu-item' key={each.id}>
                         <h1>{each.name}</h1>
+                        <div>
                         <p>Price: {each.price}</p>
                         <p>Quantity: {each.quantity}</p>
-                        <p>{each.quantity * each.price}</p>
+                        <p className='total-price-one'>{each.quantity * each.price}</p>
                         <button onClick={() => onClickDeleteItem(each.id, each.user_id)}><MdDelete className='delete-icon' /></button>
+
+                        </div>
                     </li>)}
                 </ul>
                 <div className='cart-item-fetch-right-cont'>
                     <h1>Checkout</h1>
-                    <p>Total Price - {totalPrice} Rupees</p>
+                    <p>Total Amount - <span className='overall-amount-para'>{totalPrice}</span> Rupees</p>
+                    <div className='cart-items-type-selections'>
+
+                        <select>
+                            <option className='select-default-one'>
+                                Select Payment Type
+                            </option>
+                            <option>
+                                Cash on Delivery
+                            </option>
+                            <option>
+                                UPI
+                            </option>
+                            <option>
+                                Net Banking
+                            </option>
+                            <option>
+                                Credit and Debit Cart
+                            </option>
+                        </select>
+                        
+                        <select>
+                            <option>
+                                Select Delivery Type
+                            </option>
+                            <option>
+                                Normal Delivery
+                            </option>
+                            <option>
+                                Over Night Delivery
+                            </option>
+                            <option>
+                                Express Delivery
+                            </option>
+                        </select>
+                    </div>
                     <textarea
                         value={address}
                         onChange={(e) => setAddress(e.target.value)}
@@ -215,7 +253,10 @@ const Cart = () => {
                         }>
                         </textarea>
 
-                    <button onClick={onClickPlaceOrder}>Place Order</button>
+
+                    <button onClick={onClickPlaceOrder}>
+                        <span className='place-order-one'>Place Order
+                            </span></button>
                 </div>
                 {errorone && 
                 <div className='checkout-error-cont'>

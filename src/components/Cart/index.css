@@ -21,7 +21,7 @@
 
 .empty-cart-image{
     width: 50%;
-    height: 50%;
+    height: 50;
     margin: 20px 0px;
     border-radius: 20px;
 }
@@ -40,6 +40,10 @@
     
 }
 
+.cart-item-fetch-cont{
+    padding: 0px;
+}
+
 .cart-item-fetch-cart-items{
     padding: 0px;
     margin: 0px;
@@ -48,10 +52,9 @@
     padding: 20px;
     margin: 10px;
     display: flex;
-    
     flex-direction: column;
     border-radius: 10px;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 .cart-item-fetch-everu-item{
@@ -65,8 +68,8 @@
 .cart-item-fetch-everu-item h1{
     font-size: 18px;
     font-weight: 500;
-    color:#4CAF50;
-    width: 15%;
+    color:#019c13;
+    width: 30%;
     border-radius: 10px;    
 }
 
@@ -101,6 +104,19 @@
     flex-direction: column;
 }
 
+.cart-item-fetch-cart-items{
+    padding: 0px 10px;
+}
+
+.total-price-one{
+    background-color: #ff9c39;
+    border-radius: 4px;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    padding: 8px 12px;
+    color:white !important; 
+}
+
 .cart-heading{
     font-size: 30px;
     margin: 20px;
@@ -133,17 +149,24 @@
     font-size: 20px;
     font-weight: 600;
     border: 1px solid #4CAF50;
-    color: #4CAF50;
     background-color: white;
-    padding: 8px 16px;
-    border-radius: 5px;cursor: pointer;
+    transition: all 0.4s ease-in-out;
+    padding: 10px 16px;
+    border-radius: 5px;
+    cursor: pointer;
     outline: none;
 }
 
-.cart-item-fetch-right-cont button:hover{
-    background-color: #4CAF50;
-    color:white;
-}
+
+.place-order-one{
+    background: linear-gradient(to right,rgb(0, 255, 200),rgb(255, 0, 234), rgb(0, 94, 255),#ff8000, #009105);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.3s ease;}
+.cart-item-fetch-right-cont button:hover .place-order-one{
+    -webkit-text-stroke: 0.2px #03bcf4;}
 
 .checkout-error-cont {
     position: fixed;
@@ -228,4 +251,97 @@ font-weight: 500;
 .show-profile-cont p:hover{
     background-color: #ffb770;
     border-radius: 5px;
+}
+
+.overall-amount-para{
+    background-color: #019c13;
+    border-radius: 4px;
+    margin-right: 4px;
+    padding:8px 12px;
+    color: #ffffff;
+}
+.cart-item-fetch-everu-item div{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+
+.cart-items-type-selections{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+    justify-content: space-between;
+
+}
+
+.select-default-one{
+    background-color: #999999;
+}
+
+.select-default-one:hover{
+    background-color: #999999 !important;
+}
+
+
+.cart-items-type-selections select{
+    width: 48%;
+    border: 1px solid #009105;
+    border-radius: 4px;
+    padding: 8px;
+    outline: none;
+    cursor: pointer;
+}
+
+@media screen and (max-width:767px) {
+    .empty-cart-image{
+
+        height: 30% !important;
+        margin: 0px 0px 10px 0px;
+        border-radius: 10px;
+    }
+    .cart-heading{
+        font-size: 22px;
+        margin-bottom: 10px;
+        margin-left: 30px;
+    }
+    .cart-item-fetch-everu-item{
+        border-collapse: collapse   ;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .cart-item-fetch-everu-item h1{
+        text-align: flex-start;
+        align-self: flex-start;
+        width: 100%;
+        margin-bottom: 0px;
+    }
+
+    .cart-item-fetch-everu-item div{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .cart-item-fetch-right-cont button:hover .place-order-one{    
+        color:transparent;
+    
+    }.cart-item-fetch-right-cont button{
+        font-size: 20px;
+        font-weight: 600;
+        border: 1px solid #4CAF50;
+        background: white;
+        padding: 10px 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        outline: none;
+    }
+    .cart-item-fetch-right-cont button:hover{
+        background-position: none;
+    
+    }
 }
