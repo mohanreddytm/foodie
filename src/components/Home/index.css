@@ -50,6 +50,7 @@
 }
 .home-sub-category-cont-left{
     flex-grow: 2;
+    min-width: 50%;
     display: flex;
     flex-direction: column;
 }
@@ -134,7 +135,7 @@
     }
     .list-of-items-home-fruits{
 
-        padding: 0px;
+        padding: 0px;width: 100%;
         margin-top: 20px;
     }
     .home-initial-heads{
@@ -142,11 +143,11 @@
     }
     .home-sub-category-cont-left{
         min-width: 50% !important;
+
     }
 
     .frutis-image{
         width: 150px;
         height: 80px !important;
     }
-
 }   

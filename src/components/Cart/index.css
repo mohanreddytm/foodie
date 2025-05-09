@@ -161,12 +161,11 @@
 .place-order-one{
     background: linear-gradient(to right,rgb(0, 255, 200),rgb(255, 0, 234), rgb(0, 94, 255),#ff8000, #009105);
     background-clip: text;
-    -webkit-background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
     transition: all 0.3s ease;}
 .cart-item-fetch-right-cont button:hover .place-order-one{
-    -webkit-text-stroke: 0.2px #03bcf4;}
+    -webkit-text-stroke: 0.2npx #03bcf4;}
 
 .checkout-error-cont {
     position: fixed;
